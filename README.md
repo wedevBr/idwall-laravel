@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/wedevbr/idwall-laravel.svg?style=flat-square)](https://packagist.org/packages/wedevbr/idwall-laravel)
 [![Total Downloads](https://img.shields.io/packagist/dt/wedevbr/idwall-laravel.svg?style=flat-square)](https://packagist.org/packages/wedevbr/idwall-laravel)
-![GitHub Actions](https://github.com/wedevbr/idwall-laravel/actions/workflows/main.yml/badge.svg)
+![GitHub Actions](https://github.com/wedevBr/idwall-bankly/actions/workflows/laravel.yml/badge.svg)
 
 This is an unofficial wrapper for [ID Wall API](https://idwall.co).
 
