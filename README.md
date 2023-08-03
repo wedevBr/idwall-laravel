@@ -7,8 +7,8 @@
 This is an unofficial wrapper for [ID Wall API](https://idwall.co).
 
 ## Requirements
-PHP >= 8.1
-Laravel >= 9.x
+- PHP >= 8.1
+- Laravel >= 9.x
 
 ## Installation
 
