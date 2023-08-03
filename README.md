@@ -1,4 +1,4 @@
-# Very short description of the package
+# Simple Package ID Wall for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/wedevbr/idwall-laravel.svg?style=flat-square)](https://packagist.org/packages/wedevbr/idwall-laravel)
 [![Total Downloads](https://img.shields.io/packagist/dt/wedevbr/idwall-laravel.svg?style=flat-square)](https://packagist.org/packages/wedevbr/idwall-laravel)
