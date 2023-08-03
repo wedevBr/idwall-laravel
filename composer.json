@@ -1,0 +1,67 @@
+{
+    "name": "wedevbr/idwall-laravel",
+    "description": "ID Wall API Wrapper for Laravel",
+    "keywords": [
+        "wedevbr",
+        "idwall-laravel"
+    ],
+    "homepage": "https://github.com/wedevbr/idwall-laravel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Adeildo Amorim",
+            "email": "adeildo.amorim@wedev.software",
+            "role": "Developer"
+        },
+        {
+            "name": "We Dev Group Ltda",
+            "email": "contato@wedev.software",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0|^8.1|^8.2",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^7.24.1",
+        "pestphp/pest": "^1.23",
+        "pestphp/pest-plugin-laravel": "^1.4",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WeDevBr\\IdWall\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WeDevBr\\IdWall\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WeDevBr\\IdWall\\IdWallServiceProvider"
+            ],
+            "aliases": {
+                "IdWall": "WeDevBr\\IdWall\\IdWallFacade"
+            }
+        }
+    }
+}
