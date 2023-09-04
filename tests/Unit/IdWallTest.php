@@ -1,11 +1,11 @@
 <?php
 
+use WeDevBr\IdWall\Http\Clients\ApiV2\Business;
+use WeDevBr\IdWall\Http\Clients\ApiV2\Matrix;
+use WeDevBr\IdWall\Http\Clients\ApiV2\People;
+use WeDevBr\IdWall\Http\Clients\ApiV2\Report;
+use WeDevBr\IdWall\Http\Clients\ApiV2\User;
 use WeDevBr\IdWall\IdWall;
-use WeDevBr\IdWall\Http\Clients\Business;
-use WeDevBr\IdWall\Http\Clients\Matrix;
-use WeDevBr\IdWall\Http\Clients\People;
-use WeDevBr\IdWall\Http\Clients\Report;
-use WeDevBr\IdWall\Http\Clients\User;
 
 it('can create a business client', function () {
     $idWall = new IdWall();

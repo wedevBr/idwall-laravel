@@ -1,8 +1,8 @@
 <?php
 
-use WeDevBr\IdWall\Http\Clients\Report;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
+use WeDevBr\IdWall\Http\Clients\ApiV2\Report;
 
 // Test createReport
 it('can create a report', function () {

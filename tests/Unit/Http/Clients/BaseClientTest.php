@@ -13,9 +13,9 @@ class TestableBaseClient extends BaseClient {
         return $this->getFinalUrl($endpoint);
     }
 
-    public function post(string $endpoint, array $body = null)
+    public function post(string $endpoint, array $body = null, array $query = null)
     {
-        return parent::post($endpoint, $body);
+        return parent::post($endpoint, $body, $query);
     }
 
 }
@@ -24,8 +24,8 @@ it('initializes with correct token and API URL', function () {
     // Assuming the configuration for 'idwall' is already set up
     $client = new BaseClient();
 
-    expect($client->api_url)->toBe(config('idwall')['api_url'])
-        ->and($client->getToken())->toBe(config('idwall')['auth_token']);
+    expect($client->api_url)->toBe(config('idwall')['api_v2_url'])
+        ->and($client->getToken())->toBe(config('idwall')['auth_v2_token']);
 });
 
 it('constructs the final URL correctly', function () {
@@ -34,7 +34,7 @@ it('constructs the final URL correctly', function () {
 
     $finalUrl = $client->getFinalUrlPublic($endpoint);
 
-    expect($finalUrl)->toBe(rtrim(config('idwall')['api_url'], " \t\n\r\0\x0B/") . '/' . ltrim($endpoint, " \t\n\r\0\x0B/"));
+    expect($finalUrl)->toBe(rtrim(config('idwall')['api_v2_url'], " \t\n\r\0\x0B/") . '/' . ltrim($endpoint, " \t\n\r\0\x0B/"));
 });
 
 it('performs a GET request', function () {

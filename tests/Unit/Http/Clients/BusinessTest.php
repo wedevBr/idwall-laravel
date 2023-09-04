@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Http\Client\RequestException;
-use Symfony\Component\HttpFoundation\Response;
-use WeDevBr\IdWall\Http\Clients\Business;
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
+use WeDevBr\IdWall\Http\Clients\ApiV2\Business;
 use WeDevBr\IdWall\Tests\GlobalStubs;
 
 it('retrieves all businesses', function () {

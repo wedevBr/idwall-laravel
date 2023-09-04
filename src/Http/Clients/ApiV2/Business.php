@@ -1,11 +1,11 @@
 <?php
 
-namespace WeDevBr\IdWall\Http\Clients;
+namespace WeDevBr\IdWall\Http\Clients\ApiV2;
 
 use Illuminate\Http\Client\RequestException;
 use WeDevBr\IdWall\Http\BaseClient;
 
-class People extends BaseClient
+class Business extends BaseClient
 {
     /**
      * @param int $pageNumber
@@ -14,7 +14,7 @@ class People extends BaseClient
      * @param string|null $orderBy
      * @return mixed
      * @throws RequestException
-     * @see https://docs.idwall.co/docs/listing-people
+     * @see https://docs.idwall.co/docs/listar-empresas
      */
     public function all(int $pageNumber = 1, int $limit = 25, array $filter = [], string $orderBy = null): mixed
     {
@@ -22,7 +22,7 @@ class People extends BaseClient
         if ($orderBy) {
             $query['sort'] = $orderBy;
         }
-        return $this->get('/pessoas', $query);
+        return $this->get('/empresas', $query);
     }
 
     /**
@@ -31,11 +31,11 @@ class People extends BaseClient
      * @param int $limit
      * @return mixed
      * @throws RequestException
-     * @see https://docs.idwall.co/docs/detailing-people
+     * @see https://docs.idwall.co/docs/detalhando-empresas
      */
-    public function getDetailedPerson(string $nifNumber, int $pageNumber = 1, int $limit = 25): mixed
+    public function getDetailedBusiness(string $nifNumber, int $pageNumber = 1, int $limit = 25): mixed
     {
         $query = ['page' => $pageNumber, 'rows' => $limit];
-        return $this->get("/pessoas/{$nifNumber}", $query);
+        return $this->get("/empresas/{$nifNumber}", $query);
     }
 }

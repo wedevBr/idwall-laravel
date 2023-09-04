@@ -1,7 +1,7 @@
 <?php
 
-use WeDevBr\IdWall\Http\Clients\Matrix;
 use Illuminate\Support\Facades\Http;
+use WeDevBr\IdWall\Http\Clients\ApiV2\Matrix;
 
 it('fetches all matrices', function () {
     // Arrange

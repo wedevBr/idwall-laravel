@@ -1,7 +1,7 @@
 <?php
 
-use WeDevBr\IdWall\Http\Clients\People;
 use Illuminate\Support\Facades\Http;
+use WeDevBr\IdWall\Http\Clients\ApiV2\People;
 
 it('fetches all people', function () {
     // Arrange

@@ -1,8 +1,8 @@
 <?php
 
-use WeDevBr\IdWall\Http\Clients\User;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
+use WeDevBr\IdWall\Http\Clients\ApiV2\User;
 
 it('can get all users', function () {
     Http::fake(['*/usuarios' => Http::response(['users' => 'data'], 200)]);

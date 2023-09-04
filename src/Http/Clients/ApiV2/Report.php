@@ -1,6 +1,6 @@
 <?php
 
-namespace WeDevBr\IdWall\Http\Clients;
+namespace WeDevBr\IdWall\Http\Clients\ApiV2;
 
 use Illuminate\Http\Client\RequestException;
 use WeDevBr\IdWall\Http\BaseClient;

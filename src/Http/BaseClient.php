@@ -4,7 +4,9 @@ namespace WeDevBr\IdWall\Http;
 
 use \Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class BaseClient
 {
@@ -16,8 +18,49 @@ class BaseClient
 
     public function __construct()
     {
-        $this->api_url = config('idwall')['api_url'];
-        $this->token = config('idwall')['auth_token'];
+        // Default API is v2
+        $this->api_url = config('idwall')['api_v2_url'];
+        $this->token = config('idwall')['auth_v2_token'];
+    }
+
+    public function useV3Api()
+    {
+        $this->api_url = config('idwall')['api_v3_url'];
+        $this->token = config('idwall')['auth_v3_token'];
+    }
+
+    public function useV2Api()
+    {
+        $this->api_url = config('idwall')['api_v2_url'];
+        $this->token = config('idwall')['auth_v2_token'];
+    }
+
+    /**
+     * @param string $url
+     * @return $this
+     */
+    public function setApiUrl(string $url): self
+    {
+        $this->api_url = $url;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getApiUrl(): string|null
+    {
+        return $this->api_url;
+    }
+
+    /**
+     * @param string $token
+     * @return $this
+     */
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
+        return $this;
     }
 
     public function getToken(): string|null
@@ -38,9 +81,14 @@ class BaseClient
     /**
      * @throws RequestException
      */
-    protected function post(string $endpoint, array $body = null)
+    protected function post(string $endpoint, array $body = null, array $query = null)
     {
         $request = $this->getHttpClient();
+
+        if ($query) {
+            $query = Arr::query($query);
+            $endpoint = Str::of($endpoint)->append($query);
+        }
 
         return $request->post($this->getFinalUrl($endpoint), $body)
             ->throw()
@@ -49,7 +97,7 @@ class BaseClient
     protected function getFinalUrl(string $endpoint): string
     {
         $characters = " \t\n\r\0\x0B/";
-        return rtrim($this->api_url, $characters) . "/" . ltrim($endpoint, $characters);
+        return rtrim($this->getApiUrl(), $characters) . "/" . ltrim($endpoint, $characters);
     }
 
     private function getHttpClient(): PendingRequest
