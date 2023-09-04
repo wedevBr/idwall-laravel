@@ -87,7 +87,7 @@ class BaseClient
 
         if ($query) {
             $query = Arr::query($query);
-            $endpoint = Str::of($endpoint)->append($query);
+            $endpoint = Str::of("$endpoint?")->append($query);
         }
 
         return $request->post($this->getFinalUrl($endpoint), $body)
