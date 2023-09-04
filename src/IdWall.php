@@ -7,6 +7,7 @@ use WeDevBr\IdWall\Http\Clients\ApiV2\Matrix;
 use WeDevBr\IdWall\Http\Clients\ApiV2\People;
 use WeDevBr\IdWall\Http\Clients\ApiV2\Report;
 use WeDevBr\IdWall\Http\Clients\ApiV2\User;
+use WeDevBr\IdWall\Http\Clients\ApiV3\Profile;
 
 class IdWall
 {
@@ -49,5 +50,10 @@ class IdWall
     public function clientUser(): User
     {
         return new User();
+    }
+
+    public function clientProfile(): Profile
+    {
+        return new Profile();
     }
 }

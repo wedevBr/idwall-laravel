@@ -5,6 +5,7 @@ use WeDevBr\IdWall\Http\Clients\ApiV2\Matrix;
 use WeDevBr\IdWall\Http\Clients\ApiV2\People;
 use WeDevBr\IdWall\Http\Clients\ApiV2\Report;
 use WeDevBr\IdWall\Http\Clients\ApiV2\User;
+use WeDevBr\IdWall\Http\Clients\ApiV3\Profile;
 use WeDevBr\IdWall\IdWall;
 
 it('can create a business client', function () {
@@ -35,4 +36,10 @@ it('can create a user client', function () {
     $idWall = new IdWall();
     $client = $idWall->clientUser();
     expect($client)->toBeInstanceOf(User::class);
+});
+
+it('can create a profile client', function () {
+    $idWall = new IdWall();
+    $client = $idWall->clientProfile();
+    expect($client)->toBeInstanceOf(Profile::class);
 });
