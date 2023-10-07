@@ -100,6 +100,27 @@ class BaseClient
         return rtrim($this->getApiUrl(), $characters) . "/" . ltrim($endpoint, $characters);
     }
 
+    /**
+     * @param string $endpoint
+     * @param array|null $body
+     * @param array|null $query
+     * @return array|mixed
+     * @throws RequestException
+     */
+    protected function put(string $endpoint, array $body = null, array $query = null)
+    {
+        $request = $this->getHttpClient();
+
+        if ($query) {
+            $query = Arr::query($query);
+            $endpoint = Str::of("$endpoint?")->append($query);
+        }
+
+        return $request->put($this->getFinalUrl($endpoint), $body)
+            ->throw()
+            ->json();
+    }
+
     private function getHttpClient(): PendingRequest
     {
         return Http::withHeaders([

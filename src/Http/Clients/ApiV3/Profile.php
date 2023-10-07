@@ -67,4 +67,28 @@ class Profile extends BaseClient
     {
         return $this->get("/profile/{$referenceId}");
     }
+
+
+    /**
+     * @param array $data
+     * @param string $referenceId
+     * @param string|null $sdkToken
+     * @param bool $runOcr
+     * @return mixed
+     */
+    public function updateWithSdkToken(
+        array $data,
+        string $referenceId,
+        string $sdkToken = null,
+        bool $runOcr = false
+    ): mixed
+    {
+        if ($sdkToken) {
+            $data['sdkToken'] = $sdkToken;
+        }
+
+        $query['runOCR'] = $runOcr ? 'true' : 'false';
+
+        return $this->put('/profile/'. $referenceId .'/sdk', $data, $query);
+    }
 }
